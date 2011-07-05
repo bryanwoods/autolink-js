@@ -16,7 +16,7 @@
       //<![CDATA[
         $(document).ready(function() {
           $('li').each(function() {
-            var text = $(this);
+            var text = $(this).html();
             $(this).html(text.autoLink());
           });
         
