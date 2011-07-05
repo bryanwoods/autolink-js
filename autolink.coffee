@@ -2,13 +2,15 @@ String.prototype.autoLink = (options...) ->
   url_pattern =
     /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
 
+  return this unless this.match(url_pattern)?
+
   if options.length > 0
-    result = ''
+    link_attributes = ''
 
     for key, value of options[0]
-      result += " #{key}='#{value}'"
+      link_attributes += " #{key}='#{value}'"
 
-    @replace url_pattern, "<a href='$1' " + result.trim() + ">$1</a>"
+    @replace url_pattern, "<a href='$1' " + link_attributes.trim() + ">$1</a>"
 
   else
     @replace url_pattern, "<a href='$1'>$1</a>"

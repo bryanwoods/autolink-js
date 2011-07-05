@@ -1,17 +1,20 @@
 (function() {
   var __slice = Array.prototype.slice;
   String.prototype.autoLink = function() {
-    var key, options, result, url_pattern, value, _ref;
+    var key, link_attributes, options, url_pattern, value, _ref;
     options = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     url_pattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    if (this.match(url_pattern) == null) {
+      return this;
+    }
     if (options.length > 0) {
-      result = '';
+      link_attributes = '';
       _ref = options[0];
       for (key in _ref) {
         value = _ref[key];
-        result += " " + key + "='" + value + "'";
+        link_attributes += " " + key + "='" + value + "'";
       }
-      return this.replace(url_pattern, "<a href='$1' " + result.trim() + ">$1</a>");
+      return this.replace(url_pattern, "<a href='$1' " + link_attributes.trim() + ">$1</a>");
     } else {
       return this.replace(url_pattern, "<a href='$1'>$1</a>");
     }
