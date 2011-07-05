@@ -4,9 +4,6 @@
     var key, link_attributes, options, url_pattern, value, _ref;
     options = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     url_pattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
-    if (this.match(url_pattern) == null) {
-      return this;
-    }
     if (options.length > 0) {
       link_attributes = '';
       _ref = options[0];

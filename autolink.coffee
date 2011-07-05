@@ -2,8 +2,6 @@ String.prototype.autoLink = (options...) ->
   url_pattern =
     /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
 
-  return this unless this.match(url_pattern)?
-
   if options.length > 0
     link_attributes = ''
 

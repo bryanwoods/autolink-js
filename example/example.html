@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <!-- Load jQuery and autolink-js -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
+    <script src='../autolink.js'></script>
+  </head>
+  <body>
+    <ul>
+      <li>Our first item contains no links.</li>
+      <li>Our second item contains a link to Google http://google.com.</li>
+      <li class='new_window'>Our third item contains a link that opens in a new window http://google.com</li>
+      <li>Our fourth item contains a link to Google http://google.com and a shortened bitly http://bit.ly/1337</li>
+    </ul>
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(document).ready(function() {
+          $('li').each(function() {
+            var text = $(this);
+            $(this).html(text.autoLink());
+          });
+        
+          var new_window = $('li.new_window');
+        
+          $(new_window).html(
+            new_window.html().autoLink({ target: "_blank" })
+          );
+        });
+      //]]>
+    </script>
+  </body>
+</html>
