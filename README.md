@@ -41,5 +41,5 @@ full-featured example of using with jQuery.
 
 ### Running the tests
 
-After cloning, this repository, simply open test/suite.html in your web
+After cloning this repository, simply open test/suite.html in your web
 browser. The tests will run automatically.
