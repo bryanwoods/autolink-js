@@ -1,6 +1,6 @@
 ## autolink-js
 
-autolink-js is a small, simple, and tested JavaScript tool that takes
+autolink-js is a small (about half a kilobyte), simple, and tested JavaScript tool that takes
 a string of text, finds URLs within it, and hyperlinks them.
 
 ### Why bother releasing such a tiny little method?
