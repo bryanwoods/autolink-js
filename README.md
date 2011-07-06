@@ -15,7 +15,8 @@ than I needed.
 
 autolink-js adds an autoLink() method to JavaScript's String prototype,
 so you can use it on any JavaScript string. Take a look at the tests,
-but essentially, it works like this:
+but essentially, after including either autolink.js or autolink-min.js
+to your page, it works like this:
 
     // Input
     "This is a link to Google http://google.com".autoLink()
