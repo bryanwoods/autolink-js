@@ -17,21 +17,21 @@ autolink-js adds an autoLink() method to JavaScript's String prototype,
 so you can use it on any JavaScript string. Take a look at the tests,
 but essentially, it works like this:
 
-  // Input
-  "This is a link to Google http://google.com".autoLink()
+    // Input
+    "This is a link to Google http://google.com".autoLink()
 
-  // Output
-  "This is a link to Google <a href='http://google.com'>http://google.com</a>"
+    // Output
+    "This is a link to Google <a href='http://google.com'>http://google.com</a>"
 
 ### Additional Options
 
 You can pass any additional HTML attributes to the anchor tag with a JavaScript object, like this:
 
-  // Input
-  "This is a link to Google http://google.com".autoLink({ target: "_blank", rel: "nofollow", id: "1" })
+    // Input
+    "This is a link to Google http://google.com".autoLink({ target: "_blank", rel: "nofollow", id: "1" })
 
-  // Output
-  "This is a link to Google <a href='http://google.com' target='_blank' rel='nofollow' id='1'>http://google.com</a>"
+    // Output
+    "This is a link to Google <a href='http://google.com' target='_blank' rel='nofollow' id='1'>http://google.com</a>"
 
 ### Example
 
