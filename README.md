@@ -1,7 +1,7 @@
 ## autolink-js
 
 autolink-js is a small, simple, and tested JavaScript tool that takes
-your blobs of text, finds URLs within it, and hyperlinks them.
+a string of text, finds URLs within it, and hyperlinks them.
 
 ### Why bother releasing such a tiny little method?
 
