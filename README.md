@@ -36,8 +36,8 @@ You can pass any additional HTML attributes to the anchor tag with a JavaScript 
 
 ### Example
 
-Open example/example.html in your web browser for a simple but
-full-featured example.
+Open example/example.html in your web browser and view the source for a simple but
+full-featured example of using with jQuery.
 
 ### Running the tests
 
