@@ -4,7 +4,7 @@
   autoLink = function() {
     var key, link_attributes, options, url_pattern, value, _ref;
     options = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    url_pattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    url_pattern = /(\b(https?):\/\/[\-A-Z0-9+&@#\/%?=~_|!:,.;]*[\-A-Z0-9+&@#\/%=~_|])/ig;
     if (options.length > 0) {
       link_attributes = '';
       _ref = options[0];
