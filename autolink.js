@@ -1,6 +1,7 @@
 (function() {
+  var autoLink;
   var __slice = Array.prototype.slice;
-  String.prototype.autoLink = function() {
+  autoLink = function() {
     var key, link_attributes, options, url_pattern, value, _ref;
     options = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
     url_pattern = /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
@@ -16,4 +17,5 @@
       return this.replace(url_pattern, "<a href='$1'>$1</a>");
     }
   };
+  String.prototype['autoLink'] = autoLink;
 }).call(this);

@@ -1,4 +1,4 @@
-String.prototype.autoLink = (options...) ->
+autoLink = (options...) ->
   url_pattern =
     /(\b(https?):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig
 
@@ -12,3 +12,5 @@ String.prototype.autoLink = (options...) ->
 
   else
     @replace url_pattern, "<a href='$1'>$1</a>"
+
+String.prototype['autoLink'] = autoLink
