@@ -3,7 +3,7 @@
   <head>
     <!-- Load jQuery and autolink-js -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'></script>
-    <script src='../autolink.js'></script>
+    <script src='../autolink-min.js'></script>
   </head>
   <body>
     <ul>
@@ -16,12 +16,14 @@
       //<![CDATA[
         $(document).ready(function() {
           $('li').each(function() {
-            var text = $(this).html();
-            $(this).html(text.autoLink());
+            var that = $(this);
+            var text = that.html();
+
+            that.html(text.autoLink());
           });
-        
+
           var new_window = $('li.new_window');
-        
+
           $(new_window).html(
             new_window.html().autoLink({ target: "_blank" })
           );
