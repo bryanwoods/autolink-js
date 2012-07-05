@@ -11,19 +11,28 @@
       <li>Our second item contains a link to Google http://google.com.</li>
       <li class='new_window'>Our third item contains a link that opens in a new window http://google.com</li>
       <li>Our fourth item contains a link to Google http://google.com and a shortened bitly http://bit.ly/1337</li>
+      <li class='callback'>Our fifth item contains a link to image https://www.google.com/images/srpr/logo3w.png</li>
     </ul>
     <script type='text/javascript'>
       //<![CDATA[
         $(document).ready(function() {
-          $('li').each(function() {
+          $('li:not([class!=""])').each(function() {
             var that = $(this);
             var text = that.html();
-
+        
             that.html(text.autoLink());
           });
-
+        
+          var callback = $('li.callback');
+        
+          $(callback).html(
+            callback.html().autoLink({ callback: function(url){
+              return /\.(gif|png|jpe?g)$/i.test(url) ? '<img src="' + url + '">' : null;
+            }})
+          );
+        
           var new_window = $('li.new_window');
-
+        
           $(new_window).html(
             new_window.html().autoLink({ target: "_blank" })
           );

@@ -58,3 +58,19 @@ describe "autolink", ->
       "Google it: <a href='http://google.com' target='_blank' " +
       "rel='nofollow'>http://google.com</a>"
     )
+
+  describe "callback option", ->
+    it "can be passed to redefine how link will be rendered", ->
+      expect("Google it: http://google.com"
+      .autoLink({callback: (url) -> "[#{url}](#{url})"}))
+      .toEqual("Google it: [http://google.com](http://google.com)")
+
+    it "can accept other parameters", ->
+      expect("Google it: http://google.com"
+      .autoLink({target: "_blank", rel: "nofollow", callback: (url) -> "<a href='#{url}'>#{url}</a>"}))
+      .toEqual("Google it: <a href='http://google.com'>http://google.com</a>")
+
+    it "can return nothing", ->
+      expect("Google it: http://google.com"
+      .autoLink({callback: (url) -> "<img src='#{url}' alt='#{url}'>" if /\.(gif|png|jpe?g)$/i.test(url)}))
+      .toEqual("Google it: <a href='http://google.com'>http://google.com</a>")
