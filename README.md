@@ -18,11 +18,13 @@ so you can use it on any JavaScript string. Take a look at the tests,
 but essentially, after including either autolink.js or autolink-min.js
 to your page, it works like this:
 
+```javascript
     // Input
     "This is a link to Google http://google.com".autoLink()
 
     // Output
     "This is a link to Google <a href='http://google.com'>http://google.com</a>"
+```
 
 ### Additional Options
 
