@@ -76,12 +76,12 @@ describe "autolink", ->
       .toEqual("Google it: <a href='http://google.com'>http://google.com</a>")
 
   describe "html", ->
-    it "will not affect images at end", ->
+    it "will not affect images", ->
       expect("Image <img src='http://example.com/logo.png'>".autoLink())
       .toEqual("Image <img src='http://example.com/logo.png'>")
-    it "will not affect images at beginning", ->
-      expect("<img src='http://example.com/logo.png'> image".autoLink())
-      .toEqual("<img src='http://example.com/logo.png'> image")
     it "will not affect anchors", ->
       expect("Anchor <a href='http://example.com'>http://example.com</a>".autoLink())
       .toEqual("Anchor <a href='http://example.com'>http://example.com</a>")
+    it "will still work", ->
+      expect("Anchor <a href='http://example.com'>http://example.com</a> to http://example.com".autoLink())
+      .toEqual("Anchor <a href='http://example.com'>http://example.com</a> to <a href='http://example.com'>http://example.com</a>")
