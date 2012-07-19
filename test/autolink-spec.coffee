@@ -74,3 +74,14 @@ describe "autolink", ->
       expect("Google it: http://google.com"
       .autoLink({callback: (url) -> "<img src='#{url}' alt='#{url}'>" if /\.(gif|png|jpe?g)$/i.test(url)}))
       .toEqual("Google it: <a href='http://google.com'>http://google.com</a>")
+
+  describe "html", ->
+    it "will not affect images at end", ->
+      expect("Image <img src='http://example.com/logo.png'>".autoLink())
+      .toEqual("Image <img src='http://example.com/logo.png'>")
+    it "will not affect images at beginning", ->
+      expect("<img src='http://example.com/logo.png'> image".autoLink())
+      .toEqual("<img src='http://example.com/logo.png'> image")
+    it "will not affect anchors", ->
+      expect("Anchor <a href='http://example.com'>http://example.com</a>".autoLink())
+      .toEqual("Anchor <a href='http://example.com'>http://example.com</a>")
