@@ -6,7 +6,7 @@
   autoLink = function() {
     var callback, callbackOption, key, link_attributes, option, options, url_pattern, value;
     options = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-    url_pattern = /(\b(https?|ftp):\/\/[-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[-A-Z0-9+\u0026@#\/%=~_|])/gi;
+    url_pattern = /(^|\s)(\b(https?|ftp):\/\/[\-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[\-A-Z0-9+\u0026@#\/%=~_|])/gi;
     if (options.length > 0) {
       option = options[0];
       callbackOption = option.callback;
