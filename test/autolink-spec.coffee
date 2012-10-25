@@ -44,6 +44,24 @@ describe "autolink", ->
       "Go here now <a href='http://google.com'>http://google.com</a>!"
     )
 
+  it "correctly handles hash character(#)", ->
+    expect("Go here now http://google.com/#query=index".autoLink()).
+    toEqual(
+      "Go here now <a href='http://google.com/#query=index'>http://google.com/#query=index</a>"
+    )
+
+  it "correctly handles escaped fragment character(#!)", ->
+    expect("Go here now http://twitter.com/#!/PostDeskUK".autoLink()).
+    toEqual(
+      "Go here now <a href='http://twitter.com/#!/PostDeskUK'>http://twitter.com/#!/PostDeskUK</a>"
+    )
+
+  it "correctly handles FTP links", ->
+    expect("Click here ftp://ftp.google.com".autoLink()).
+    toEqual(
+      "Click here <a href='ftp://ftp.google.com'>ftp://ftp.google.com</a>"
+    )
+  
   it "sets link attributes based on the options provided", ->
     expect("Google it: http://google.com".autoLink(target: "_blank")).
     toEqual(
