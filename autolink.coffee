@@ -1,26 +1,21 @@
 autoLink = (options...) ->
+  link_attributes = ''
+  option = options[0]
   url_pattern =
     /(^|\s)(\b(https?|ftp):\/\/[\-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[\-A-Z0-9+\u0026@#\/%=~_|])/gi
 
-  if options.length > 0
-    option = options[0]
-    callbackOption = option.callback
+  return @replace url_pattern, "$1<a href='$2'>$2</a>" unless options.length > 0
 
-    if callbackOption? and typeof callbackOption is 'function'
-      callback = callbackOption
-      delete option.callback
+  if option['callback']? and typeof option['callback'] is 'function'
+    callbackThunk = option['callback']
+    delete option['callback']
 
-    link_attributes = ''
+  link_attributes += " #{key}='#{value}'" for key, value of option
 
-    for key, value of option
-      link_attributes += " #{key}='#{value}'"
+  @replace url_pattern, (match, space, url) ->
+    returnCallback = callbackThunk and callbackThunk(url)
+    link = returnCallback or "<a href='#{url}'#{link_attributes}>#{url}</a>"
 
-    @replace url_pattern, (match, space, url) ->
-      returnCallback = callback and callback(url)
-
-      link = returnCallback or "<a href='#{url}'#{link_attributes}>#{url}</a>"
-      "#{space}#{link}"
-  else
-    @replace url_pattern, "$1<a href='$2'>$2</a>"
+    "#{space}#{link}"
 
 String.prototype['autoLink'] = autoLink
