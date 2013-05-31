@@ -1,8 +1,14 @@
 autoLink = (options...) ->
   linkAttributes = ''
   option = options[0]
-  pattern =
-    /(^|\s)((?:https?|ftp):\/\/[\-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[\-A-Z0-9+\u0026@#\/%=~_|])/gi
+  pattern = ///
+    (^|\s) # Capture the beginning of string or leading whitespace
+    (
+      (?:https?|ftp):// # Look for a valid URL protocol (non-captured)
+      [\-A-Z0-9+\u0026@#/%?=~_|!:,.;]* # Valid URL characters (any number of times)
+      [\-A-Z0-9+\u0026@#/%=~_|] # String must end in a valid URL character
+    )
+  ///gi
 
   return @replace pattern, "$1<a href='$2'>$2</a>" unless options.length > 0
 
