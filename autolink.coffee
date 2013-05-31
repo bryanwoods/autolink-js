@@ -1,6 +1,4 @@
 autoLink = (options...) ->
-  linkAttributes = ''
-  option = options[0]
   pattern = ///
     (^|\s) # Capture the beginning of string or leading whitespace
     (
@@ -12,8 +10,10 @@ autoLink = (options...) ->
 
   return @replace(pattern, "$1<a href='$2'>$2</a>") unless options.length > 0
 
-  for key, value of option when key isnt 'callback'
-    linkAttributes += " #{key}='#{value}'"
+  option = options[0]
+  linkAttributes = (
+    " #{k}='#{v}'" for k, v of option when k isnt 'callback'
+  ).join('')
 
   @replace pattern, (match, space, url) ->
     link = option.callback?(url) or
