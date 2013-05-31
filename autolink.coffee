@@ -2,7 +2,7 @@ autoLink = (options...) ->
   link_attributes = ''
   option = options[0]
   url_pattern =
-    /(^|\s)(\b(https?|ftp):\/\/[\-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[\-A-Z0-9+\u0026@#\/%=~_|])/gi
+    /(^|\s)((?:https?|ftp):\/\/[\-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[\-A-Z0-9+\u0026@#\/%=~_|])/gi
 
   return @replace url_pattern, "$1<a href='$2'>$2</a>" unless options.length > 0
 
