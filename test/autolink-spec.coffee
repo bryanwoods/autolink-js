@@ -61,7 +61,7 @@ describe "autolink", ->
     toEqual(
       "Click here <a href='ftp://ftp.google.com'>ftp://ftp.google.com</a>"
     )
-  
+
   it "sets link attributes based on the options provided", ->
     expect("Google it: http://google.com".autoLink(target: "_blank")).
     toEqual(
@@ -76,6 +76,17 @@ describe "autolink", ->
       "Google it: <a href='http://google.com' target='_blank' " +
       "rel='nofollow'>http://google.com</a>"
     )
+
+  xit "correctly handles surrounding HTML tags", ->
+    expect("<p>http://nba.com</p>".autoLink()).
+    toEqual("<p><a href='http://nba.com'>http://nba.com</a></p>")
+
+  it "can begin with a hyperlink", ->
+    expect("http://google.com That is a link to Google".autoLink()).
+      toEqual(
+        "<a href='http://google.com'>http://google.com</a> " +
+        "That is a link to Google"
+      )
 
   describe "callback option", ->
     it "can be passed to redefine how link will be rendered", ->
