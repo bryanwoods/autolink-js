@@ -1,20 +1,20 @@
 autoLink = (options...) ->
-  link_attributes = ''
+  linkAttributes = ''
   option = options[0]
-  url_pattern =
+  pattern =
     /(^|\s)((?:https?|ftp):\/\/[\-A-Z0-9+\u0026@#\/%?=~_|!:,.;]*[\-A-Z0-9+\u0026@#\/%=~_|])/gi
 
-  return @replace url_pattern, "$1<a href='$2'>$2</a>" unless options.length > 0
+  return @replace pattern, "$1<a href='$2'>$2</a>" unless options.length > 0
 
   if option['callback']? and typeof option['callback'] is 'function'
     callbackThunk = option['callback']
     delete option['callback']
 
-  link_attributes += " #{key}='#{value}'" for key, value of option
+  linkAttributes += " #{key}='#{value}'" for key, value of option
 
-  @replace url_pattern, (match, space, url) ->
+  @replace pattern, (match, space, url) ->
     returnCallback = callbackThunk and callbackThunk(url)
-    link = returnCallback or "<a href='#{url}'#{link_attributes}>#{url}</a>"
+    link = returnCallback or "<a href='#{url}'#{linkAttributes}>#{url}</a>"
 
     "#{space}#{link}"
 
