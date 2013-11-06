@@ -56,6 +56,12 @@ describe "autolink", ->
       "Go here now <a href='http://twitter.com/#!/PostDeskUK'>http://twitter.com/#!/PostDeskUK</a>"
     )
 
+  it "correctly handles parentheses ()", ->
+    expect("My favorite Wikipedia Article http://en.wikipedia.org/wiki/Culture_of_honor_(Southern_United_States)".autoLink()).
+    toEqual(
+      "My favorite Wikipedia Article <a href='http://en.wikipedia.org/wiki/Culture_of_honor_(Southern_United_States)'>http://en.wikipedia.org/wiki/Culture_of_honor_(Southern_United_States)</a>"
+    )
+
   it "correctly handles FTP links", ->
     expect("Click here ftp://ftp.google.com".autoLink()).
     toEqual(

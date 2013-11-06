@@ -3,8 +3,8 @@ autoLink = (options...) ->
     (^|\s) # Capture the beginning of string or leading whitespace
     (
       (?:https?|ftp):// # Look for a valid URL protocol (non-captured)
-      [\-A-Z0-9+\u0026@#/%?=~_|!:,.;]* # Valid URL characters (any number of times)
-      [\-A-Z0-9+\u0026@#/%=~_|] # String must end in a valid URL character
+      [\-A-Z0-9+\u0026@#/%?=()~_|!:,.;]* # Valid URL characters (any number of times)
+      [\-A-Z0-9+\u0026@#/%=~()_|] # String must end in a valid URL character
     )
   ///gi
 
