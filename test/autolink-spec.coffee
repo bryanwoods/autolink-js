@@ -62,6 +62,13 @@ describe "autolink", ->
       "My favorite Wikipedia Article <a href='http://en.wikipedia.org/wiki/Culture_of_honor_(Southern_United_States)'>http://en.wikipedia.org/wiki/Culture_of_honor_(Southern_United_States)</a>"
     )
 
+  it "allows single right quotes", ->
+    expect("Safety for Syria’s Women http://www.rescue.org/press-releases/syria’s-women-and-girls-continue-face-chaos-and-danger-fearing-their-safety-18565".autoLink()).
+      toEqual(
+        "Safety for Syria’s Women <a href='http://www.rescue.org/press-releases/syria’s-women-and-girls-continue-face-chaos-and-danger-fearing-their-safety-18565'>http://www.rescue.org/press-releases/syria’s-women-and-girls-continue-face-chaos-and-danger-fearing-their-safety-18565</a>"
+      )
+
+
   it "correctly handles FTP links", ->
     expect("Click here ftp://ftp.google.com".autoLink()).
     toEqual(
