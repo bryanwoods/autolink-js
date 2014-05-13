@@ -101,6 +101,22 @@ describe "autolink", ->
         "That is a link to Google"
       )
 
+  it "can have a hyperlink as first part of a new line", ->
+    expect("I think I can help you.\nhttp://google.com That is a link to Google".autoLink()).
+      toEqual(
+        "I think I can help you.\n" +
+        "<a href='http://google.com'>http://google.com</a> " +
+        "That is a link to Google"
+      )
+
+  it "can have a hyperlink as first part of a new HTML line", ->
+    expect("I think I can help you.<br>http://google.com That is a link to Google".autoLink()).
+      toEqual(
+        "I think I can help you.<br>" +
+        "<a href='http://google.com'>http://google.com</a> " +
+        "That is a link to Google"
+      )
+
   describe "callback option", ->
     it "can be passed to redefine how link will be rendered", ->
       expect("Google it: http://google.com"

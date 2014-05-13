@@ -57,6 +57,12 @@
     it("can begin with a hyperlink", function() {
       return expect("http://google.com That is a link to Google".autoLink()).toEqual("<a href='http://google.com'>http://google.com</a> " + "That is a link to Google");
     });
+    it("can have a hyperlink as first part of a new line", function() {
+      return expect("I think I can help you.\nhttp://google.com That is a link to Google".autoLink()).toEqual("I think I can help you.\n" + "<a href='http://google.com'>http://google.com</a> " + "That is a link to Google");
+    });
+    it("can have a hyperlink as first part of a new HTML line", function() {
+      return expect("I think I can help you.<br>http://google.com That is a link to Google".autoLink()).toEqual("I think I can help you.<br>" + "<a href='http://google.com'>http://google.com</a> " + "That is a link to Google");
+    });
     describe("callback option", function() {
       it("can be passed to redefine how link will be rendered", function() {
         return expect("Google it: http://google.com".autoLink({
