@@ -68,7 +68,6 @@ describe "autolink", ->
         "Safety for Syria’s Women <a href='http://www.rescue.org/press-releases/syria’s-women-and-girls-continue-face-chaos-and-danger-fearing-their-safety-18565'>http://www.rescue.org/press-releases/syria’s-women-and-girls-continue-face-chaos-and-danger-fearing-their-safety-18565</a>"
       )
 
-
   it "correctly handles FTP links", ->
     expect("Click here ftp://ftp.google.com".autoLink()).
     toEqual(
@@ -108,6 +107,21 @@ describe "autolink", ->
         "<a href='http://google.com'>http://google.com</a> " +
         "That is a link to Google"
       )
+
+  it "correctly hyperlinks the example", ->
+    linkWithNewLines = """
+      http://google.com
+      "http://google.com"
+      (http://google.com)
+    """
+
+    expectedResult = """
+      <a href='http://google.com'>http://google.com</a>
+      "http://google.com"
+      (http://google.com)
+    """
+
+    expect(linkWithNewLines.autoLink()).toEqual(expectedResult)
 
   it "can have a hyperlink as first part of a new HTML line", ->
     expect("I think I can help you.<br>http://google.com That is a link to Google".autoLink()).
