@@ -1,0 +1,23 @@
+{
+  "name": "autlink-js",
+  "version": "1.0.0",
+  "description": "Tiny little tool to find URLs in a string of text and hyperlink them",
+  "main": "autolink-min.js",
+  "directories": {
+    "example": "example",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "open test/suite.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryanwoods/autolink-js.git"
+  },
+  "author": "Bryan Woods",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bryanwoods/autolink-js/issues"
+  },
+  "homepage": "https://github.com/bryanwoods/autolink-js#readme"
+}
