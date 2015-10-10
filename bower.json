@@ -6,7 +6,7 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
+    "*",
     "example",
     "test"
   ],
