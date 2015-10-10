@@ -11,6 +11,6 @@
     "test"
   ],
   "main": [
-    "./autolink.js"
+    "./autolink-min.js"
   ]
 }
