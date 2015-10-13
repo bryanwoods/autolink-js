@@ -6,11 +6,11 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
+    "*",
     "example",
     "test"
   ],
   "main": [
-    "./autolink.js"
+    "./autolink-min.js"
   ]
 }
