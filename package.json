@@ -1,5 +1,5 @@
 {
-  "name": "autlink-js",
+  "name": "autolink-js",
   "version": "1.0.0",
   "description": "Tiny little tool to find URLs in a string of text and hyperlink them",
   "main": "autolink-min.js",
