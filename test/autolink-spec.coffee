@@ -116,6 +116,21 @@ describe "autolink", ->
         "<a href='http://google.com'>http://google.com</a> " +
         "That is a link to Google"
       )
+  it "can have a hyperlink after a tag", ->
+    expect("<li>http://google.com</li>".autoLink()).
+      toEqual(
+        "<li>" +
+        "<a href='http://google.com'>http://google.com</a>" +
+        "</li>"
+      )
+
+  it "can have a hyperlink after two tag", ->
+    expect("<li><p>http://google.com</p></li>".autoLink()).
+      toEqual(
+        "<li><p>" +
+        "<a href='http://google.com'>http://google.com</a>" +
+        "</p></li>"
+      )
 
   describe "callback option", ->
     it "can be passed to redefine how link will be rendered", ->
