@@ -10,7 +10,7 @@ autoLink = (options...) ->
 
   return @replace(pattern, "$1<a href='$2'>$2</a>") unless options.length > 0
 
-  option, callback = options[0]
+  option = options[0]
   callback = option["callback"]
 
   linkAttributes = (
